@@ -1,4 +1,4 @@
-![Banner](Computer Vision%20Hub.png)
+![Banner](Computer%20Vision%20Hub.png)
 
 # 👁️ Computer Vision Hub
 

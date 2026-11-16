@@ -50,7 +50,7 @@ Two different neural networks trained on the same brain MRI dataset to compare c
 
 | Custom VGG-Style CNN | EfficientNetB0 |
 | :---: | :---: |
-| ![VGG Demo](Brain%20Tumor%20AI%20-%20VGG%20Style/img2.png) | ![EfficientNet Demo](Brain%20Tumor%20AI%20-%20EfficientNetB0/img0.png) |
+| ![VGG Demo](Brain%20Tumor%20AI%20-%20VGG%20Style/img2.png) | ![EfficientNet Demo](Brain%20Tumor%20AI%20-%20EfficientNetB0/img1.png) |
 
 ---
 

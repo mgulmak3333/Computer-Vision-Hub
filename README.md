@@ -1,3 +1,5 @@
+![Banner](Computer Vision%20Hub.png)
+
 # 👁️ Computer Vision Hub
 
 A personal collection of end-to-end Computer Vision and Deep Learning projects, exploring the intersection of intelligent systems, visual perception, and real-world applications.

@@ -99,7 +99,7 @@ Make sure the required files and directories are in place:
 ```text
 Astra Vision AI/
 │
-├── app_astra.py
+├── app.py
 ├── requirements.txt
 ├── astra_vision.pt
 ├── README.md
@@ -123,7 +123,7 @@ The `test/` directory contains sample satellite images that can be used to try o
 Once the dependencies are installed and the model weights are in the correct directory, start the Streamlit application:
 
 ```bash
-streamlit run app_astra.py
+streamlit run app.py
 ```
 
 Streamlit will launch the application in your default browser.
@@ -146,7 +146,7 @@ You can also upload your own satellite images to experiment with the model.
 ```text
 Astra Vision AI/
 │
-├── app_astra.py                 # Streamlit application
+├── app.py                 # Streamlit application
 ├── requirements.txt       # Required Python libraries
 ├── astra_vision.pt       # Trained YOLO26s segmentation model
 ├── README.md             # Project documentation

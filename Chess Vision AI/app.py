@@ -12,7 +12,7 @@ def load_model():
 
 model = load_model()
 
-file = st.file_uploader("Upload a satellite image", type=["jpg", "jpeg", "png"])
+file = st.file_uploader("Upload a chess image", type=["jpg", "jpeg", "png"])
 
 if file:
     img = np.array(Image.open(file).convert("RGB"))

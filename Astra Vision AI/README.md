@@ -1,74 +1,68 @@
 # 🛰️ Astra Vision AI
-### Satellite Imagery Instance Segmentation with YOLO26
 
-Astra Vision AI is a Computer Vision project focused on detecting and segmenting objects in high-resolution satellite imagery using deep learning.
+**Aerial Object Detection Using YOLO26 Small OBB**
 
-Built with **YOLO26 Small Segmentation (YOLO26s-seg)**, the model identifies and generates segmentation masks for various aerial objects, including aircraft, ships, harbors, bridges, and ground vehicles.
+Astra Vision AI is an AI-powered object detection project designed to detect and locate objects in aerial and satellite images. It uses the **YOLO26 Small OBB** model to identify objects with oriented bounding boxes, providing more accurate localization for objects that appear at different angles.
 
-The project also includes a custom **Streamlit web application** that allows users to upload satellite images and visualize the model's segmentation results through an interactive interface.
-
----
+The project is built around the DOTA v1.5 dataset and includes a Streamlit-based interface where users can upload images and view the model's predictions.
 
 ## 📌 Project Overview
 
-| Category | Details |
+| Feature | Description |
 |---|---|
 | Project Name | Astra Vision AI |
-| Task | Instance Segmentation |
-| Model | YOLO26 Small Segmentation |
-| Framework | Ultralytics YOLO |
-| Dataset | iSAID Dataset |
-| Dataset Size | Approximately 22 GB |
-| Training Duration | Approximately 6 Hours |
+| Model | YOLO26 Small OBB |
+| Model Task | Oriented Object Detection |
+| Dataset | DOTA v1.5 |
+| Training Platform | Ultralytics Platform |
 | Application | Streamlit |
-| Inference | Image Upload |
-
----
+| Model Format | `.pt` |
 
 ## 🧠 Model & Training
 
-The model was trained using the **iSAID (Instance Segmentation in Aerial Images) Dataset**, a large-scale dataset containing aerial images with pixel-level object annotations.
+Astra Vision AI uses **YOLO26 Small OBB**, a model designed for oriented object detection.
 
-**Dataset:** [iSAID Dataset – YOLO11 Segmentation Format](https://www.kaggle.com/datasets/redzapdos123/isaid-dataset-yolo11-seg-format)
+Unlike traditional object detection models that use horizontal bounding boxes, OBB models can detect objects using rotated bounding boxes. This is particularly useful for aerial images, where objects can appear at different angles and orientations.
 
-- **Dataset Size:** Approximately 22 GB
-- **Architecture:** YOLO26 Small Segmentation
-- **Training Duration:** Approximately 6 hours
-- **Task:** Multi-class Instance Segmentation
+### Dataset
 
-The training process was particularly challenging due to the dataset's size and computational requirements. Processing approximately 22 GB of annotated satellite imagery pushed the limits of the available hardware and resulted in several unsuccessful training attempts.
+The model was trained using the **DOTA v1.5 (Dataset for Object Detection in Aerial Images)** dataset.
 
-After multiple experiments and adjustments, I successfully completed a training run and obtained a functional segmentation model.
+- **Dataset:** [DOTA v1.5 – Ultralytics Platform](https://platform.ultralytics.com/ultralytics/datasets/dotav1-5?utm_source=docs&utm_medium=card)
+- **Training Platform:** [Ultralytics Platform](https://platform.ultralytics.com/)
 
-### Model Performance & Limitations
+Model training was performed directly through the **Ultralytics Platform website**, using its web-based training interface.
 
-Although the model is capable of identifying and segmenting important aerial objects, its performance is not yet perfect.
+## 🎯 Performance & Limitations
 
-- It can successfully detect and segment several types of objects in satellite imagery.
-- It may occasionally miss smaller objects, especially in densely populated scenes.
-- Segmentation quality can vary depending on image resolution, object size, and scene complexity.
+Astra Vision AI is designed to detect various objects in aerial and satellite imagery, including:
 
-The current model is a working implementation and a foundation for further optimization and experimentation.
+- Plane
+- Ships
+- Small vehicles
+- Large vehicles
+- ...
+- Bridges
+- Other aerial objects included in the dataset
 
----
+### Limitations
+
+Although the model can detect various aerial objects, it may encounter some limitations:
+
+- Very small objects can be difficult to detect.
+- Objects in densely populated areas may occasionally be missed.
+- Detection performance can vary depending on image resolution and scene complexity.
+- Overlapping objects may affect detection results.
 
 ## 🖥️ Application Preview
 
-The project includes a Streamlit interface for testing the trained model without manually writing inference code.
+The project includes a Streamlit application that allows users to upload images and visualize the model's predictions.
 
-The application allows users to upload satellite images and visualize the predicted segmentation masks.
+![Astra Vision AI Detection Example](img4.png)
 
-![Astra Vision AI Inference Demo](img4.png)
+## ⚙️ Installation
 
-*Example output demonstrating that the trained model successfully processes an image and generates segmentation results.*
-
----
-
-## ⚙️ Installation & Setup
-
-Follow the steps below to run Astra Vision AI locally.
-
-### 1. Clone the Repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/mgulmak3333/Computer-Vision-Hub.git
@@ -77,114 +71,77 @@ git clone https://github.com/mgulmak3333/Computer-Vision-Hub.git
 Navigate to the project directory:
 
 ```bash
-cd Computer-Vision-Hub/Astra-Vision-AI
+cd "Astra Vision AI"
 ```
 
-*Make sure the folder name matches the actual directory name in your repository. If it contains spaces, use its exact name.*
-
-### 2. Install Dependencies
-
-All required Python libraries are listed in the `requirements.txt` file.
-
-Install them using:
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Verify the Project Files
-
-Make sure the required files and directories are in place:
-
-```text
-Astra Vision AI/
-│
-├── app.py
-├── requirements.txt
-├── astra_vision.pt
-├── README.md
-│
-├── test/
-│   ├── 1.png
-│   ├── 2.png
-│   └── ...
-│
-└── img4.png
-```
-
-**Important:** The trained model weights (`astra_vision.pt`) must be present in the project directory because the application loads this file during startup.
-
-The `test/` directory contains sample satellite images that can be used to try out the model.
-
----
-
 ## 🚀 Running the Application
 
-Once the dependencies are installed and the model weights are in the correct directory, start the Streamlit application:
+Start the Streamlit application:
 
 ```bash
 streamlit run app.py
 ```
 
-Streamlit will launch the application in your default browser.
+After running the command, Streamlit will open the application in your browser.
 
-### How to Test the Model
+### Testing the Model
 
-1. Launch the application using the command above.
-2. Open the Streamlit interface.
-3. Upload a satellite image.
-4. Select one of the sample images available in the `test/` directory.
-5. Wait for the model to process the image.
-6. Examine the resulting segmentation masks.
+1. Open the Astra Vision AI application.
+2. Upload an aerial or satellite image.
+3. Wait for the model to process the image.
+4. View the detected objects and their oriented bounding boxes.
 
-You can also upload your own satellite images to experiment with the model.
+You can use the sample images inside the `test/` directory to try the application.
 
----
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```text
 Astra Vision AI/
 │
-├── app.py                 # Streamlit application
-├── requirements.txt       # Required Python libraries
-├── astra_vision.pt       # Trained YOLO26s segmentation model
-├── README.md             # Project documentation
+├── app.py
+├── astra_vision.pt
+├── requirements.txt
+├── img4.png
 │
-├── test/                  # Sample images for testing
-│
-└── img4.png               # Example inference result
+└── test/
+    └── sample images
 ```
 
----
+| File / Directory | Description |
+|---|---|
+| `app.py` | Streamlit application |
+| `astra_vision.pt` | Trained YOLO26 Small OBB model |
+| `requirements.txt` | Required Python libraries |
+| `img4.png` | Example detection output |
+| `test/` | Sample images for testing |
 
 ## 🛠️ Technologies Used
 
-- **Python** – Main programming language
-- **Ultralytics YOLO** – Object detection and instance segmentation
-- **YOLO26s-seg** – Trained segmentation architecture
-- **Streamlit** – Interactive web application
-- **NumPy** – Numerical operations
-- **Pillow (PIL)** – Image loading and processing
+- Python
+- YOLO26 Small OBB
+- Ultralytics Platform
+- Streamlit
+- Computer Vision
+- Object Detection
+- Oriented Bounding Boxes (OBB)
 
----
+## 🔮 Future Improvements
 
-## 🔭 Future Improvements
+Possible future improvements for Astra Vision AI include:
 
-Potential directions for further development include:
-
-- Improving the detection of small objects in dense satellite scenes.
-- Experimenting with higher-resolution inference.
-- Optimizing segmentation accuracy and inference speed.
-- Expanding the testing process with additional satellite imagery.
-- Exploring image slicing techniques for detecting smaller aerial targets.
-
----
+- Improving detection performance on small objects.
+- Testing the model with different aerial image sources.
+- Enhancing the Streamlit interface.
+- Exploring additional model configurations.
 
 ## 👨‍💻 Developer
 
-**Developed by Musa Gülmak**
+**Developed by:** [Musa Gülmak](https://github.com/mgulmak3333)
 
-[GitHub Profile](https://github.com/mgulmak3333) · [Computer Vision Hub](https://github.com/mgulmak3333/Computer-Vision-Hub)
-
-Part of my personal Computer Vision and Deep Learning portfolio.
+**GitHub Repository:** [Computer Vision Hub](https://github.com/mgulmak3333/Computer-Vision-Hub)

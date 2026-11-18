@@ -4,7 +4,7 @@
 
 A personal collection of end-to-end Computer Vision and Deep Learning projects, exploring the intersection of intelligent systems, visual perception, and real-world applications.
 
-This repository brings together my hands-on work across Object Detection, Instance Segmentation, and Medical Image Classification. Each project represents a different technical challenge, where I experiment with model architectures, develop custom training pipelines, optimize inference workflows, and build interactive AI applications.
+This repository brings together my hands-on work across Object Detection, Oriented Object Detection (OBB), and Medical Image Classification. Each project represents a different technical challenge, where I experiment with model architectures, develop custom training pipelines, optimize inference workflows, and build interactive AI applications.
 
 My approach goes beyond simply training existing models. I focus on understanding the underlying architectures, implementing custom solutions from scratch, experimenting with different deep learning techniques, and turning trained models into practical applications.
 
@@ -29,12 +29,18 @@ Built through experimentation, problem-solving, and continuous learning.
 
 ## 🚀 Projects, Engineering Notes & Visual Demos
 
-### 1. 🛰️ Astra Vision AI — *Satellite Imagery Instance Segmentation*
-Segments and detects aerial objects—such as airplanes, ships, harbors, and ground vehicles—from top-down satellite imagery at the pixel level.
+### 1. 🛰️ Astra Vision AI — *Satellite Imagery Object Detection (OBB)*
 
-- **Task:** Instance Segmentation
-- **Dataset:** [iSAID Dataset (YOLO Format)](https://www.kaggle.com/datasets/redzapdos123/isaid-dataset-yolo11-seg-format) (~22 GB)
-- **Engineering Story & Challenges:** This was by far the most challenging and resource-intensive project in my portfolio. Handling a **22 GB dataset** for pixel-level segmentation pushed hardware and training limits, resulting in significant time loss and failed runs during my initial segmentation attempts. After iterating on the pipeline, I achieved a working model—while it is not flawless and occasionally misses smaller targets in dense scenes, it accurately segments key objects like aircraft and vehicles in real-world satellite imagery.
+Detects and localizes aerial objects—such as airplanes, ships, harbors, bridges, and ground vehicles—from top-down satellite and aerial imagery using oriented bounding boxes. By predicting rotated bounding boxes, the model can accurately represent objects regardless of their orientation in the image.
+
+- **Architecture:** YOLO26 Small OBB
+- **Task:** Oriented Object Detection (OBB)
+- **Dataset:** [DOTA v1.5 Dataset](https://platform.ultralytics.com/ultralytics/datasets/dotav1-5)
+- **Training Platform:** Ultralytics Platform
+
+- **Key Features:** Detects multiple object categories in complex satellite imagery and uses rotated bounding boxes to represent the position, angle, and orientation of detected objects more precisely than conventional horizontal bounding boxes.
+
+**Engineering Story & Highlights:** Developing Astra Vision AI allowed me to explore oriented object detection in large-scale satellite imagery. One of the main advantages of this approach is its ability to handle objects positioned at different angles, making it particularly suitable for aerial images where vehicles, ships, and aircraft rarely follow a consistent orientation. The trained model demonstrates strong detection capabilities across various satellite imagery scenarios, successfully identifying and localizing objects with rotated bounding boxes.
 
 ![Astra Vision Demo](Astra%20Vision%20AI/img4.png)
 
